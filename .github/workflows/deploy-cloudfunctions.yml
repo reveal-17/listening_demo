@@ -20,14 +20,14 @@ jobs:
         name: 'Authenticate to Google Cloud'
         uses: 'google-github-actions/auth@v1'
         with:
-          workload_identity_provider: 'projects/<プロジェクト番号>/locations/global/workloadIdentityPools/<Workload Identity プール ID>/providers/<Workload Identity プロバイダ ID>'
-          service_account: '<利用したいサービスアカウント>'
+          workload_identity_provider: 'projects/161988452667/locations/global/workloadIdentityPools/github/providers/gitHub'
+          service_account: 'albem-dev-github-actions@albem-dev.iam.gserviceaccount.com'
       - name: 'Set up Cloud SDK'
         uses: 'google-github-actions/setup-gcloud@v1'
         with:
           version: '>= 379.0.0'
       - name: 'Upload test file'
-        run: 'echo "test" > test.txt && gsutil cp test.txt gs://<用意したGCSバケット名>'
+        run: 'echo "test" > test.txt && gsutil cp test.txt gs://albem-script-dev'
 
     # steps:
     #   # ソースコードのチェックアウトをする
