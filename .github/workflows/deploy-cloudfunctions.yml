@@ -19,6 +19,8 @@ jobs:
         name: 'Authenticate to Google Cloud'
         uses: 'google-github-actions/auth@v1'
         with:
+          # gcloud authで使用するため
+          create_credentials_file: "true"
           workload_identity_provider: 'projects/161988452667/locations/global/workloadIdentityPools/github/providers/gitHub'
           service_account: 'albem-dev-github-actions@albem-dev.iam.gserviceaccount.com'
       - name: 'Set up Cloud SDK'
