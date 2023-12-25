@@ -1,6 +1,5 @@
 name: Deploy Cloud Functions
 on:
-  # 手動ormainブランチにpush時に実行
   workflow_dispatch:
   push:
     branches:
@@ -26,6 +25,9 @@ jobs:
         uses: 'google-github-actions/setup-gcloud@v1'
         with:
           version: '>= 379.0.0'
+      - name: gcloud auth login by workload identity
+        run: |-
+          gcloud auth login --brief --cred-file="$${{ steps.auth.outputs.credentials_file_path }}"
       - name: 'Upload test file'
         run: 'echo "test" > test.txt && gsutil cp test.txt gs://albem-script-dev'
 
