@@ -36,8 +36,7 @@ jobs:
           --entry-point=hello
           --trigger-http
           --no-allow-unauthenticated
-          --set-env-vars GCP_PROJECT=${{ vars.PROJECT_ID }}
-          --run-service-account ${{ vars.PROJECT_ID }}-github-actions@${{ vars.PROJECT_ID }}.iam.gserviceaccount.com
+          --run-service-account list_wav_files_sa@${{ vars.PROJECT_ID }}.iam.gserviceaccount.com
 
     # steps:
     #   # ソースコードのチェックアウトをする
