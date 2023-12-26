@@ -26,13 +26,13 @@ jobs:
         uses: 'google-github-actions/setup-gcloud@v1'
         with:
           version: '>= 379.0.0'
-      - name: 'Deploy Cloud Functions gen2 Using gcloud command'
+      - name: 'Deploy Cloud Functions gen1 Using gcloud command'
         # gcloudコマンドを利用してCloud Functionsをデプロイする
         run: >-
           gcloud functions deploy list_wav_files
           --runtime=python310
           --region=asia-northeast1
-          --source=./src/main.py
+          --source=./src
           --entry-point=hello
           --trigger-http
           --no-allow-unauthenticated
