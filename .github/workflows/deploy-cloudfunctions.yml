@@ -32,7 +32,7 @@ jobs:
           gcloud functions deploy list_wav_files
           --runtime=python310
           --region=asia-northeast1
-          --source=./src
+          --source gs://gcf-script-bucket/index.zip
           --entry-point=hello
           --trigger-http
           --no-allow-unauthenticated
